@@ -9,7 +9,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: "var(--font-outfit), sans-serif",
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };
