@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     }
 
     // validate role
-    if (role !== "user" || role !== "assistant") {
+    if (role !== "user" && role !== "assistant") {
       res.status(422).json({
         message: "role must be either 'assistant' or 'user'",
       });
