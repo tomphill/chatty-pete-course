@@ -22,7 +22,12 @@ export default async function handler(req, res) {
     }
 
     // validate content data
-    if (!content || typeof content !== "string" || content.length > 200) {
+    if (
+      !content ||
+      typeof content !== "string" ||
+      (role === "user" && content.length > 200) ||
+      (role === "assistant" && content.length > 100000)
+    ) {
       res.status(422).json({
         message: "content is required and must be less than 200 characters",
       });
